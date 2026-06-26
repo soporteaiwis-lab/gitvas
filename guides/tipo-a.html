@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía Tipo A — Sin VBA · Visual AI Studio</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#12121e;--bg2:#1c1c2d;--bg3:#252540;--green:#10b981;--text:#e2e8f0;--muted:#94a3b8;--border:#2a2a4a;--blue:#2563eb}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif}
+a{color:var(--blue);text-decoration:none}
+.topbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 28px;font-size:13px;color:var(--muted)}
+.topbar a{color:var(--blue)}
+main{padding:32px;max-width:800px;margin:0 auto}
+.hero{background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(16,185,129,.05));border:1px solid rgba(16,185,129,.3);border-radius:14px;padding:24px;margin-bottom:28px}
+.type-chip{display:inline-block;background:var(--green);color:#fff;font-size:12px;font-weight:800;padding:4px 12px;border-radius:6px;margin-bottom:12px}
+.hero h1{font-size:24px;font-weight:800;margin-bottom:8px}
+.hero p{color:var(--muted);font-size:14px;line-height:1.6}
+.meta{display:flex;gap:20px;margin-top:16px;flex-wrap:wrap}
+.meta-item{font-size:13px;display:flex;align-items:center;gap:6px}
+.meta-item .label{color:var(--muted)}
+h2{font-size:15px;font-weight:700;margin-bottom:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;display:flex;align-items:center;gap:8px}
+h2::before{content:'';display:block;width:3px;height:16px;background:var(--green);border-radius:2px}
+section{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.steps{list-style:none}
+.step{display:flex;gap:14px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.step-n{width:28px;height:28px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;color:#fff}
+.step-text h3{font-size:14px;font-weight:600;margin-bottom:4px}
+.step-text p{font-size:13px;color:var(--muted);line-height:1.5}
+.check{list-style:none}
+.check li{padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;display:flex;align-items:center;gap:8px}
+.check li:last-child{border-bottom:none}
+.check li::before{content:'☐';color:var(--green);font-size:16px}
+.alert{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:14px 16px;font-size:13px;color:#6ee7b7}
+footer{border-top:1px solid var(--border);padding:20px 28px;text-align:center;font-size:12px;color:var(--muted);margin-top:32px}
+.print-btn{background:var(--green);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;margin-bottom:20px}
+@media print{
+  body{background:#fff;color:#000}
+  .topbar,.print-btn{display:none}
+  section{border:1px solid #ccc;background:#f9f9f9}
+  .hero{background:#f0fdf4;border:1px solid #86efac}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../Index.html">← Inicio</a> / <a href="index.html">Guías</a> / <span>Tipo A</span>
+</div>
+<main>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimir / Guardar PDF</button>
+
+  <div class="hero">
+    <div class="type-chip">TIPO A</div>
+    <h1>Sin VBA — Importación Directa</h1>
+    <p>El archivo Excel no contiene macros ni código VBA. Se importa directamente a Google Sheets sin conversión de código. Es la ruta más rápida y segura.</p>
+    <div class="meta">
+      <div class="meta-item"><span class="label">Tiempo estimado:</span> <strong>1–2 horas</strong></div>
+      <div class="meta-item"><span class="label">Complejidad:</span> <strong style="color:var(--green)">BAJA</strong></div>
+      <div class="meta-item"><span class="label">Archivos BCI:</span> <strong>22 archivos</strong></div>
+      <div class="meta-item"><span class="label">Generado:</span> <strong>2026-06-26</strong></div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Ejemplo Completado</h2>
+    <div class="alert">
+      ✅ <strong>Banca Empresarios (Luis Cárcamo)</strong> — 7 de 7 archivos ya en Google Drive. Esta área es el modelo a seguir para todos los Tipo A.
+    </div>
+  </section>
+
+  <section>
+    <h2>Pasos de Migración</h2>
+    <ol class="steps">
+      <li class="step">
+        <div class="step-n">1</div>
+        <div class="step-text">
+          <h3>Verificar que no hay VBA</h3>
+          <p>Abrir el archivo en Excel. Si la extensión es .xlsx (no .xlsm) no hay macros. Para .xlsm: <code>Alt+F11</code> → revisar que no haya código en los módulos.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-n">2</div>
+        <div class="step-text">
+          <h3>Desbloquear archivo (si aplica)</h3>
+          <p>Click derecho en el archivo → Propiedades → si aparece "Desbloquear" al fondo, marcarlo. Los archivos descargados de internet tienen ADS Zone.Identifier que bloquea oletools.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-n">3</div>
+        <div class="step-text">
+          <h3>Escanear con VAS</h3>
+          <p>En Visual AI Studio → VAS Home → carpeta del área → click lupa en el archivo → verificar ICM &lt; 2 y tipo=A en el resultado del análisis forense.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-n">4</div>
+        <div class="step-text">
+          <h3>Subir a Google Drive</h3>
+          <p>Migrador → Batch Deploy → seleccionar archivos Tipo A → "Subir a Drive (upload only)". El sistema crea el Google Sheet automáticamente. Toma ~30 segundos por archivo.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Checklist QA</h2>
+    <ul class="check">
+      <li>El archivo escaneado muestra tipo=A en el análisis</li>
+      <li>ICM &lt; 2 (complejidad baja)</li>
+      <li>El Google Sheet fue creado y aparece en Drive</li>
+      <li>Las hojas del Excel están todas presentes en Sheets</li>
+      <li>Los datos se ven correctos (números, fechas, formatos)</li>
+      <li>El Sheet fue compartido con el encargado del área</li>
+      <li>El estado en el Migrador cambió a ☁ "Subido"</li>
+    </ul>
+  </section>
+
+  <div style="display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;margin-top:20px">
+    <a href="index.html" style="color:var(--muted);font-size:13px">← Volver a Guías</a>
+    <a href="tipo-b.html" style="color:var(--blue);font-size:13px">Siguiente: Tipo B (VBA→GAS) →</a>
+  </div>
+</main>
+<footer>© 2026 Aiiwis · soporte.aiwis@gmail.com · Visual AI Studio v1.0</footer>
+</body>
+</html>

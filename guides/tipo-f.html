@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guía Tipo F — Full Pipeline | Visual AI Studio BCI</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:#0d0d18;color:#cdd6f4;padding:24px;font-size:13px;line-height:1.6}
+.nav{display:flex;align-items:center;gap:8px;margin-bottom:24px;font-size:11px}
+.nav a{color:#6272a4;text-decoration:none}.nav a:hover{color:#cdd6f4}
+h1{font-size:22px;font-weight:800;color:#fff;margin-bottom:6px}
+.badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:16px}
+.card{background:#111827;border:1px solid #1e2a3a;border-radius:10px;padding:18px;margin-bottom:16px}
+.card-title{font-size:10px;font-weight:700;color:#6272a4;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.step{display:flex;gap:14px;margin-bottom:14px;align-items:flex-start}
+.step-num{min-width:28px;height:28px;border-radius:50%;background:#9C27B0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
+.step-title{font-size:12px;font-weight:700;color:#cdd6f4;margin-bottom:4px}
+.step-desc{font-size:11px;color:#8892a4}
+code{background:#1a1a2e;color:#86efac;padding:2px 7px;border-radius:4px;font-size:10px;font-family:monospace}
+.alert{background:rgba(156,39,176,.08);border:1px solid rgba(156,39,176,.3);border-radius:8px;padding:12px;margin-bottom:16px}
+.chk{display:flex;gap:8px;align-items:flex-start;margin-bottom:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{background:#0a0f1a;border-radius:8px;padding:12px;border:1px solid #1e2a3a}
+.stat-val{font-size:20px;font-weight:800}
+.stat-lbl{font-size:9px;color:#6272a4;margin-top:2px}
+</style>
+</head>
+<body>
+<div class="nav"><a href="../index.html">← Inicio</a> / <a href="index.html">Guías</a> / <span style="color:#9C27B0">Tipo F</span></div>
+<h1>⚠ Tipo F — Full Pipeline</h1>
+<span class="badge" style="background:rgba(156,39,176,.15);color:#9C27B0;border:1px solid rgba(156,39,176,.3)">Máxima complejidad · 3-7 días · 47 archivos COMEX</span>
+<div class="alert">
+  <div style="font-size:12px;font-weight:700;color:#ce93d8;margin-bottom:6px">⚠ Requiere bridge REST a Sybase PROMETEO_II</div>
+  <div style="font-size:11px;color:#9C27B0">47 archivos COMEX (BLACK). VBA complejo + ODBC + UserForms. NO migrar sin el puente REST operativo. Coordinar con equipo técnico BCI.</div>
+</div>
+<div class="grid2" style="margin-bottom:16px">
+  <div class="stat"><div class="stat-val" style="color:#9C27B0">47</div><div class="stat-lbl">Archivos COMEX BLACK</div></div>
+  <div class="stat"><div class="stat-val" style="color:#FBBC04">3-7 días</div><div class="stat-lbl">Esfuerzo estimado</div></div>
+</div>
+<div class="card">
+  <div class="card-title">📋 8 Fases de migración</div>
+  <div class="step"><div class="step-num">1</div><div><div class="step-title">Desbloquear archivo</div><div class="step-desc"><code>unblock_excel.py</code> — quitar Zone.Identifier</div></div></div>
+  <div class="step"><div class="step-num">2</div><div><div class="step-title">Deconstruir forense</div><div class="step-desc"><code>python deconstructor.py</code> — revisar ODBC, UserForms, SQL en catastro_migracion.json</div></div></div>
+  <div class="step"><div class="step-num">3</div><div><div class="step-title">Mapear tablas Sybase</div><div class="step-desc">Documentar: comex.dbo.COL, TIP, CLN, TRSD. Crear db_mapping.json por archivo.</div></div></div>
+  <div class="step"><div class="step-num">4</div><div><div class="step-title">Implementar bridge REST</div><div class="step-desc">API intermedia (Python/Node) → consulta Sybase → devuelve JSON al GAS. Desplegar en servidor BCI.</div></div></div>
+  <div class="step"><div class="step-num">5</div><div><div class="step-title">Convertir VBA → GAS</div><div class="step-desc"><code>python vba_to_gas.py</code> — adaptar QueryTables/ADODB → fetch(REST). Adaptar UserForms → sidebar.</div></div></div>
+  <div class="step"><div class="step-num">6</div><div><div class="step-title">Revisar GAS</div><div class="step-desc">Sin residuos VBA, sin const duplicados. Agregar onOpen(), _logAction(), getConfig().</div></div></div>
+  <div class="step"><div class="step-num">7</div><div><div class="step-title">Deploy clasp push</div><div class="step-desc"><code>npx @google/clasp create --type sheets --title "NOMBRE BCI - Visual Sheets v1.0"</code><br><code>npx @google/clasp push --force</code></div></div></div>
+  <div class="step"><div class="step-num">8</div><div><div class="step-title">QA con PROMETEO_II real</div><div class="step-desc">Validar que bridge entrega datos correctos. Comparar vs Excel original.</div></div></div>
+</div>
+<div class="card">
+  <div class="card-title">🗄 Tablas Sybase (COMEX)</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11px">
+    <div style="background:#0a0f1a;border-radius:6px;padding:8px"><code>comex.dbo.COL</code><div style="color:#6272a4;font-size:10px;margin-top:3px">51 archivos</div></div>
+    <div style="background:#0a0f1a;border-radius:6px;padding:8px"><code>comex.dbo.TIP</code><div style="color:#6272a4;font-size:10px;margin-top:3px">43 archivos</div></div>
+    <div style="background:#0a0f1a;border-radius:6px;padding:8px"><code>comex.dbo.CLN</code><div style="color:#6272a4;font-size:10px;margin-top:3px">42 archivos</div></div>
+    <div style="background:#0a0f1a;border-radius:6px;padding:8px"><code>comex.dbo.TRSD</code><div style="color:#6272a4;font-size:10px;margin-top:3px">33 archivos</div></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">✅ Checklist QA</div>
+  <div class="chk"><input type="checkbox"><span>Bridge REST operativo — devuelve JSON desde PROMETEO_II</span></div>
+  <div class="chk"><input type="checkbox"><span>ADODB/QueryTables reemplazados por fetch()</span></div>
+  <div class="chk"><input type="checkbox"><span>UserForms adaptados a sidebar GAS</span></div>
+  <div class="chk"><input type="checkbox"><span>onOpen(), _logAction(), getConfig() presentes</span></div>
+  <div class="chk"><input type="checkbox"><span>Datos coinciden con Excel original</span></div>
+  <div class="chk"><input type="checkbox"><span>Log_Ejecución generado sin errores</span></div>
+  <div class="chk"><input type="checkbox"><span>Sheet compartido con equipo BCI COMEX</span></div>
+</div>
+<div style="text-align:center;font-size:9px;color:#3a3a4a;margin-top:20px;padding-top:12px;border-top:1px solid #1a1a2e">
+  Visual AI Studio — BCI Migración 2026 · <a href="../index.html" style="color:#6272a4">Inicio</a>
+</div>
+</body></html>

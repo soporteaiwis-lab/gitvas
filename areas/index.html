@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Áreas BCI | Visual AI Studio</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:#0d0d18;color:#cdd6f4;padding:24px;font-size:13px}
+.nav{display:flex;align-items:center;gap:8px;margin-bottom:24px;font-size:11px}
+.nav a{color:#6272a4;text-decoration:none}.nav a:hover{color:#cdd6f4}
+h1{font-size:22px;font-weight:800;color:#fff;margin-bottom:6px}
+h2{font-size:13px;color:#6272a4;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.area-card{background:#111827;border:1px solid #1e2a3a;border-radius:10px;padding:16px;border-top:3px solid var(--c)}
+.area-card:hover{border-color:var(--c);transform:translateY(-2px);transition:.2s}
+.area-name{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px}
+.area-owner{font-size:11px;color:#6272a4;margin-bottom:10px}
+.area-stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.stat-pill{font-size:10px;padding:3px 8px;border-radius:20px;background:rgba(255,255,255,.06);color:#8892a4}
+.status-badge{font-size:10px;padding:3px 10px;border-radius:20px;font-weight:700}
+.btn{display:inline-block;font-size:10px;padding:6px 14px;border-radius:6px;text-decoration:none;font-weight:600;cursor:pointer;border:none;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="nav"><a href="../index.html">← Inicio</a> / <span style="color:#4285F4">Áreas BCI</span></div>
+<h1>📊 Áreas BCI — Por Encargado</h1>
+<h2>21 áreas · 174 archivos Excel · Migración 2026</h2>
+
+<div class="grid">
+  <div class="area-card" style="--c:#34A853">
+    <div class="area-name">Banca Empresarios</div>
+    <div class="area-owner">👤 Luis Cárcamo</div>
+    <div class="area-stats">
+      <span class="stat-pill">7 archivos</span>
+      <span class="stat-pill">Tipo A</span>
+      <span class="stat-pill">GREEN</span>
+    </div>
+    <span class="status-badge" style="background:rgba(52,168,83,.15);color:#34A853;border:1px solid rgba(52,168,83,.3)">✅ 7/7 en Google Drive</span>
+    <div style="font-size:10px;color:#6272a4;margin-top:8px">Sin VBA — importación directa completada. Modelo a seguir.</div>
+  </div>
+
+  <div class="area-card" style="--c:#34A853">
+    <div class="area-name">Reclamaciones</div>
+    <div class="area-owner">👤 Daniel Zhigley</div>
+    <div class="area-stats">
+      <span class="stat-pill">3 archivos</span>
+      <span class="stat-pill">Tipo A</span>
+      <span class="stat-pill">GREEN</span>
+    </div>
+    <span class="status-badge" style="background:rgba(52,168,83,.15);color:#34A853;border:1px solid rgba(52,168,83,.3)">✅ Ya en GAS</span>
+    <div style="font-size:10px;color:#6272a4;margin-top:8px">Migración completada previamente.</div>
+  </div>
+
+  <div class="area-card" style="--c:#FBBC04">
+    <div class="area-name">Planes Personas</div>
+    <div class="area-owner">👤 Manuel Díaz</div>
+    <div class="area-stats">
+      <span class="stat-pill">2 archivos</span>
+      <span class="stat-pill">Tipo B</span>
+      <span class="stat-pill">YELLOW/RED</span>
+    </div>
+    <span class="status-badge" style="background:rgba(251,188,4,.15);color:#FBBC04;border:1px solid rgba(251,188,4,.3)">🔄 POC001 ✅ | POC002 en curso</span>
+    <div style="font-size:10px;color:#6272a4;margin-top:8px">pp028 FORMATEO deployado. pp027 BETA MACRO en limpieza.</div>
+    <a href="personas.html" class="btn" style="background:rgba(251,188,4,.1);color:#FBBC04;border:1px solid rgba(251,188,4,.25)">Ver detalle →</a>
+  </div>
+
+  <div class="area-card" style="--c:#FF9800">
+    <div class="area-name">PYME</div>
+    <div class="area-owner">👤 Roberto Aránguiz</div>
+    <div class="area-stats">
+      <span class="stat-pill">4-6 archivos</span>
+      <span class="stat-pill">Tipo B/C</span>
+      <span class="stat-pill">YELLOW/ORANGE</span>
+    </div>
+    <span class="status-badge" style="background:rgba(255,152,0,.15);color:#FF9800;border:1px solid rgba(255,152,0,.3)">⏳ Pendiente</span>
+  </div>
+
+  <div class="area-card" style="--c:#FF9800">
+    <div class="area-name">Contabilidad Sucursales</div>
+    <div class="area-owner">👤 Carlos Canales</div>
+    <div class="area-stats">
+      <span class="stat-pill">1 archivo</span>
+      <span class="stat-pill">Tipo B</span>
+      <span class="stat-pill">ORANGE</span>
+    </div>
+    <span class="status-badge" style="background:rgba(255,152,0,.15);color:#FF9800;border:1px solid rgba(255,152,0,.3)">⚠ Bloqueado — Access .mdb</span>
+    <div style="font-size:10px;color:#6272a4;margin-top:8px">Depende de Diferencias de Cajas V2.mdb (Microsoft Access).</div>
+  </div>
+
+  <div class="area-card" style="--c:#EA4335">
+    <div class="area-name">Estados Financieros (EEFF)</div>
+    <div class="area-owner">👤 Carlos Soto</div>
+    <div class="area-stats">
+      <span class="stat-pill">16 archivos</span>
+      <span class="stat-pill">Tipo E/F</span>
+      <span class="stat-pill">BLACK/RED</span>
+    </div>
+    <span class="status-badge" style="background:rgba(234,67,53,.15);color:#EA4335;border:1px solid rgba(234,67,53,.3)">🔴 Requiere análisis profundo</span>
+    <a href="eeff.html" class="btn" style="background:rgba(234,67,53,.1);color:#EA4335;border:1px solid rgba(234,67,53,.25)">Ver detalle →</a>
+  </div>
+
+  <div class="area-card" style="--c:#EA4335">
+    <div class="area-name">Middle Office Pago Multimoneda</div>
+    <div class="area-owner">👤 Williams Nehgme</div>
+    <div class="area-stats">
+      <span class="stat-pill">5 archivos</span>
+      <span class="stat-pill">Tipo E/F</span>
+      <span class="stat-pill">BLACK</span>
+    </div>
+    <span class="status-badge" style="background:rgba(234,67,53,.15);color:#EA4335;border:1px solid rgba(234,67,53,.3)">🔴 RODAS + Sybase</span>
+    <div style="font-size:10px;color:#6272a4;margin-top:8px">Dependencia crítica: \Srv-rodas-ii + ODBC. Requiere bridge REST.</div>
+  </div>
+
+  <div class="area-card" style="--c:#9C27B0">
+    <div class="area-name">COMEX</div>
+    <div class="area-owner">👤 Francisco Soto</div>
+    <div class="area-stats">
+      <span class="stat-pill">97 archivos</span>
+      <span class="stat-pill">Tipo E/F</span>
+      <span class="stat-pill">BLACK (89 ODBC)</span>
+    </div>
+    <span class="status-badge" style="background:rgba(156,39,176,.15);color:#9C27B0;border:1px solid rgba(156,39,176,.3)">⚠ 89/97 con ODBC Sybase</span>
+    <div style="font-size:10px;color:#6272a4;margin-top:8px">El área más grande y compleja. Requiere bridge REST a PROMETEO_II antes de migrar.</div>
+    <a href="comex.html" class="btn" style="background:rgba(156,39,176,.1);color:#ce93d8;border:1px solid rgba(156,39,176,.25)">Ver detalle →</a>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:9px;color:#3a3a4a;margin-top:32px;padding-top:12px;border-top:1px solid #1a1a2e">
+  Visual AI Studio — BCI Migración 2026 · <a href="../index.html" style="color:#6272a4">Inicio</a>
+</div>
+</body></html>

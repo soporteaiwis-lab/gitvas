@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía Tipo B — VBA a GAS · Visual AI Studio</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#12121e;--bg2:#1c1c2d;--bg3:#252540;--yellow:#f59e0b;--text:#e2e8f0;--muted:#94a3b8;--border:#2a2a4a;--blue:#2563eb;--green:#10b981}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif}
+a{color:var(--blue);text-decoration:none}
+.topbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 28px;font-size:13px;color:var(--muted)}
+.topbar a{color:var(--blue)}
+main{padding:32px;max-width:800px;margin:0 auto}
+.hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(245,158,11,.04));border:1px solid rgba(245,158,11,.3);border-radius:14px;padding:24px;margin-bottom:28px}
+.type-chip{display:inline-block;background:var(--yellow);color:#000;font-size:12px;font-weight:800;padding:4px 12px;border-radius:6px;margin-bottom:12px}
+.hero h1{font-size:24px;font-weight:800;margin-bottom:8px}
+.hero p{color:var(--muted);font-size:14px;line-height:1.6}
+.meta{display:flex;gap:20px;margin-top:16px;flex-wrap:wrap}
+.meta-item{font-size:13px;display:flex;align-items:center;gap:6px}
+.meta-item .label{color:var(--muted)}
+h2{font-size:15px;font-weight:700;margin-bottom:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;display:flex;align-items:center;gap:8px}
+h2::before{content:'';display:block;width:3px;height:16px;background:var(--yellow);border-radius:2px}
+section{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.steps{list-style:none}
+.step{display:flex;gap:14px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.step-n{width:28px;height:28px;background:var(--yellow);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;color:#000}
+.step-text h3{font-size:14px;font-weight:600;margin-bottom:4px}
+.step-text p{font-size:13px;color:var(--muted);line-height:1.5}
+code{background:var(--bg3);padding:2px 6px;border-radius:4px;font-family:monospace;font-size:12px;color:#a5b4fc}
+pre{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px;font-family:monospace;font-size:12px;color:#a5b4fc;overflow-x:auto;margin-top:8px;line-height:1.6}
+.check{list-style:none}
+.check li{padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;display:flex;align-items:center;gap:8px}
+.check li:last-child{border-bottom:none}
+.check li::before{content:'☐';color:var(--yellow);font-size:16px}
+.alert-success{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:14px 16px;font-size:13px;color:#6ee7b7}
+.print-btn{background:var(--yellow);color:#000;border:none;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;margin-bottom:20px}
+footer{border-top:1px solid var(--border);padding:20px 28px;text-align:center;font-size:12px;color:var(--muted);margin-top:32px}
+@media print{body{background:#fff;color:#000}.topbar,.print-btn{display:none}section{border:1px solid #ccc;background:#fffbeb}pre{background:#f5f5f5;color:#333}.hero{background:#fffbeb;border:1px solid #fcd34d}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../Index.html">← Inicio</a> / <a href="index.html">Guías</a> / <span>Tipo B</span>
+</div>
+<main>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimir / Guardar PDF</button>
+
+  <div class="hero">
+    <div class="type-chip">TIPO B</div>
+    <h1>VBA Puro → Google Apps Script</h1>
+    <p>El archivo tiene macros VBA sin dependencias externas (no ODBC, no rutas UNC a servidores). Se convierte usando el motor automático vba_to_gas.py y se revisa manualmente.</p>
+    <div class="meta">
+      <div class="meta-item"><span class="label">Tiempo estimado:</span> <strong>4–8 horas</strong></div>
+      <div class="meta-item"><span class="label">Complejidad:</span> <strong style="color:var(--yellow)">MEDIA</strong></div>
+      <div class="meta-item"><span class="label">Archivos BCI:</span> <strong>~2 archivos</strong></div>
+      <div class="meta-item"><span class="label">Generado:</span> <strong>2026-06-26</strong></div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Ejemplo Completado — POC001</h2>
+    <div class="alert-success">
+      ✅ <strong>FORMATEO pp028</strong> (Manuel Díaz · Planes Personas) — POC001 completado 2026-06-20.<br>
+      Sheet ID: <code>10c_yP95kH96IACKMjjamcdJyGyyvGZyFIX0ilyumn14</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pasos de Migración</h2>
+    <ol class="steps">
+      <li class="step">
+        <div class="step-n">1</div>
+        <div class="step-text">
+          <h3>Scan forense del archivo</h3>
+          <p>En VAS Home → lupa en el archivo → verificar tipo=B, revisar módulos VBA listados, confirmar que no hay rutas UNC ni ODBC detectados.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-n">2</div>
+        <div class="step-text">
+          <h3>Deconstruir el Excel</h3>
+          <p>Ejecutar el deconstructor para extraer los módulos VBA y los datos:</p>
+          <pre>python src/engine/deconstructor.py &lt;ruta_xlsm&gt;</pre>
+          <p>Resultado en <code>workspaces/OUT_PACKAGES/deconstructed_&lt;nombre&gt;/</code></p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-n">3</div>
+        <div class="step-text">
+          <h3>Convertir VBA → GAS automático</h3>
+          <pre>python src/engine/vba_to_gas.py workspaces/OUT_PACKAGES/deconstructed_&lt;nombre&gt;</pre>
+          <p>Genera <code>04_SHEETS_PRODUCCION/VBA_Converter/*.gs</code> y un <code>conversion_report.json</code> con el % convertido.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-n">4</div>
+        <div class="step-text">
+          <h3>Revisar y limpiar el GAS generado</h3>
+          <p>Abrir el .gs generado y revisar: residuos VBA sin convertir, variables <code>const</code> redeclaradas, apóstrofes sueltos. Crear versión limpia en <code>DEPLOY_CLASP/&lt;NOMBRE&gt;.gs</code>.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-n">5</div>
+        <div class="step-text">
+          <h3>Agregar helpers estándar</h3>
+          <p>Incluir: <code>onOpen()</code> con menú BCI, <code>initConfig()</code>, <code>_logAction()</code>, <code>verLog()</code>. El archivo POC001 FORMATEO.gs es la referencia.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-n">6</div>
+        <div class="step-text">
+          <h3>Deploy via clasp</h3>
+          <pre>cd workspaces/TEST_REAL_01/&lt;carpeta&gt;/DEPLOY_CLASP
+npx @google/clasp create --type sheets --title "&lt;NOMBRE&gt; BCI - Visual Sheets v1.0"
+npx @google/clasp push --force</pre>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-n">7</div>
+        <div class="step-text">
+          <h3>Validar en Google Sheet</h3>
+          <p>Abrir el Sheet → ingresar datos de prueba → Menú ⚡ BCI Migración → ejecutar macro → verificar hoja Log_&lt;NOMBRE&gt; generada correctamente.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Checklist QA</h2>
+    <ul class="check">
+      <li>Scan muestra tipo=B, sin rutas UNC, sin ODBC</li>
+      <li>Conversión automática cubre &gt;70% de las líneas</li>
+      <li>Ninguna variable <code>const</code> redeclarada en el .gs</li>
+      <li>Menú ⚡ BCI Migración aparece al abrir el Sheet</li>
+      <li>Macro ejecuta sin errores en Apps Script</li>
+      <li>Hoja de log se crea automáticamente</li>
+      <li>Resultados coinciden con el Excel original (QA comparativo)</li>
+      <li>Sheet ID y Script ID registrados en HITOS.md</li>
+    </ul>
+  </section>
+
+  <div style="display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;margin-top:20px">
+    <a href="tipo-a.html" style="color:var(--muted);font-size:13px">← Tipo A</a>
+    <a href="tipo-e.html" style="color:var(--blue);font-size:13px">Siguiente: Tipo E (ODBC Sybase) →</a>
+  </div>
+</main>
+<footer>© 2026 Aiiwis · soporte.aiwis@gmail.com · Visual AI Studio v1.0</footer>
+</body>
+</html>

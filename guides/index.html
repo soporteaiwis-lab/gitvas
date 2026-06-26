@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guías de Migración · Visual AI Studio</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#12121e;--bg2:#1c1c2d;--bg3:#252540;--blue:#2563eb;--green:#10b981;--yellow:#f59e0b;--red:#ef4444;--purple:#9333ea;--orange:#f97316;--text:#e2e8f0;--muted:#94a3b8;--border:#2a2a4a}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.topbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 28px;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.topbar a{color:var(--blue)}
+main{padding:32px;max-width:900px;margin:0 auto}
+h1{font-size:26px;font-weight:800;margin-bottom:8px}
+.sub{color:var(--muted);font-size:14px;margin-bottom:32px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:.2s}
+.card:hover{transform:translateY(-2px);border-color:var(--c)}
+.card-top{padding:20px;border-bottom:1px solid var(--border)}
+.type-badge{display:inline-block;background:var(--c);color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:6px;letter-spacing:.06em;margin-bottom:12px}
+.card h2{font-size:17px;font-weight:700;margin-bottom:6px}
+.card p{font-size:13px;color:var(--muted);line-height:1.5}
+.card-bottom{padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.time{font-size:12px;color:var(--muted)}
+.cta{background:var(--c);color:#fff;font-size:13px;font-weight:600;padding:7px 16px;border-radius:8px;transition:.15s}
+.cta:hover{opacity:.85}
+footer{border-top:1px solid var(--border);padding:20px 28px;text-align:center;font-size:12px;color:var(--muted)}
+footer a{color:var(--blue)}
+@media print{body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../Index.html">← Inicio</a> / <span>Guías de Migración</span>
+</div>
+<main>
+  <h1>📘 Guías de Migración BCI</h1>
+  <p class="sub">Rutas estándar para migrar archivos Excel a Google Workspace. Cada tipo define complejidad, tiempo y pasos.</p>
+
+  <div class="grid">
+
+    <div class="card" style="--c:var(--green)">
+      <div class="card-top">
+        <div class="type-badge">TIPO A</div>
+        <h2>Sin VBA — Importación Directa</h2>
+        <p>El archivo no tiene macros. Se importa directamente a Google Sheets sin conversión de código. Ruta más simple y rápida.</p>
+      </div>
+      <div class="card-bottom">
+        <span class="time">⏱ 1–2 horas</span>
+        <a href="tipo-a.html" class="cta">Ver guía →</a>
+      </div>
+    </div>
+
+    <div class="card" style="--c:var(--yellow)">
+      <div class="card-top">
+        <div class="type-badge">TIPO B</div>
+        <h2>VBA Puro → Google Apps Script</h2>
+        <p>El archivo tiene macros VBA sin dependencias externas. Se convierte VBA → GAS usando el motor de conversión automático + revisión manual.</p>
+      </div>
+      <div class="card-bottom">
+        <span class="time">⏱ 4–8 horas</span>
+        <a href="tipo-b.html" class="cta">Ver guía →</a>
+      </div>
+    </div>
+
+    <div class="card" style="--c:var(--red)">
+      <div class="card-top">
+        <div class="type-badge">TIPO E</div>
+        <h2>VBA + ODBC Sybase PROMETEO_II</h2>
+        <p>VBA con conexión a base de datos Sybase. Requiere bridge REST antes de poder migrar. La mayoría del área COMEX (89 de 97 archivos).</p>
+      </div>
+      <div class="card-bottom">
+        <span class="time">⏱ 2–5 días</span>
+        <a href="tipo-e.html" class="cta">Ver guía →</a>
+      </div>
+    </div>
+
+    <div class="card" style="--c:#6b7280">
+      <div class="card-top">
+        <div class="type-badge" style="background:#374151">TIPO F</div>
+        <h2>Full Pipeline — Máxima complejidad</h2>
+        <p>VBA + ODBC + UserForms + múltiples hojas complejas. El caso más complejo. COMEX tiene 36 archivos de este tipo.</p>
+      </div>
+      <div class="card-bottom">
+        <span class="time">⏱ 3–7 días</span>
+        <a href="tipo-f.html" class="cta">Ver guía →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:28px">
+    <h3 style="font-size:14px;font-weight:700;margin-bottom:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">Distribución de tipos en BCI</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:13px">
+      <thead><tr style="background:var(--bg3)">
+        <th style="padding:8px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--muted)">Tipo</th>
+        <th style="padding:8px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--muted)">Descripción</th>
+        <th style="padding:8px 12px;text-align:right;font-size:11px;text-transform:uppercase;color:var(--muted)">Archivos</th>
+        <th style="padding:8px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--muted)">Área principal</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:8px 12px"><span style="background:rgba(16,185,129,.2);color:#10b981;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700">A</span></td><td style="padding:8px 12px">Sin VBA</td><td style="padding:8px 12px;text-align:right">22</td><td style="padding:8px 12px;color:var(--muted)">Banca Empresarios</td></tr>
+        <tr><td style="padding:8px 12px"><span style="background:rgba(245,158,11,.2);color:#f59e0b;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700">B</span></td><td style="padding:8px 12px">VBA puro</td><td style="padding:8px 12px;text-align:right">1</td><td style="padding:8px 12px;color:var(--muted)">Planes Personas</td></tr>
+        <tr><td style="padding:8px 12px"><span style="background:rgba(239,68,68,.2);color:#ef4444;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700">E</span></td><td style="padding:8px 12px">VBA + ODBC</td><td style="padding:8px 12px;text-align:right">19</td><td style="padding:8px 12px;color:var(--muted)">COMEX</td></tr>
+        <tr><td style="padding:8px 12px"><span style="background:rgba(100,100,120,.3);color:#94a3b8;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700">F</span></td><td style="padding:8px 12px">Full pipeline</td><td style="padding:8px 12px;text-align:right">47</td><td style="padding:8px 12px;color:var(--muted)">COMEX + EEFF</td></tr>
+        <tr><td style="padding:8px 12px"><span style="background:rgba(147,51,234,.2);color:#9333ea;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700">D</span></td><td style="padding:8px 12px">Dashboard / solo lectura</td><td style="padding:8px 12px;text-align:right">1</td><td style="padding:8px 12px;color:var(--muted)">COMEX</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+<footer>© 2026 <strong>Aiiwis</strong> · <a href="mailto:soporte.aiwis@gmail.com">soporte.aiwis@gmail.com</a></footer>
+</body>
+</html>
